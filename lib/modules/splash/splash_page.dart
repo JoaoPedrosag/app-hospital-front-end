@@ -26,12 +26,6 @@ class _SplashPageState extends State<SplashPage> {
               ),
             ),
           ),
-          AnimatedTextKit(
-            animatedTexts: [
-              TypewriterAnimatedText('Promed',
-                  textStyle: TextStyle(fontSize: 25, color: Colors.black)),
-            ],
-          )
         ],
       ),
     );

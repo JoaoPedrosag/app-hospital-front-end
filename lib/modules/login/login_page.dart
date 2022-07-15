@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:patient_front_end/utils/colors/colors_palette.dart';
-
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
 
