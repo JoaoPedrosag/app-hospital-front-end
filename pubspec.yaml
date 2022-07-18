@@ -42,8 +42,7 @@ dependencies:
   flutter_mobx: ^2.0.6+1
   
   validatorless: ^1.2.1
-  asuka: ^2.0.0+1
-  provider: ^6.0.3
+  asuka: ^2.0.0+1  
   flutter_modular: ^5.0.3  
   flutter_secure_storage: ^5.0.2
 

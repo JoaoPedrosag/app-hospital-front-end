@@ -24,4 +24,50 @@ class SnackBarCustom {
       ]),
     ));
   }
+
+  static void error(String text) {
+    asuka.showSnackBar(SnackBar(
+      duration: const Duration(milliseconds: 2300),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: const Color.fromRGBO(152, 0, 0, 6),
+      content: Row(children: [
+        const Icon(
+          Icons.error,
+          color: Colors.white,
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Flexible(
+          child: Text(
+            text,
+            overflow: TextOverflow.clip,
+          ),
+        ),
+      ]),
+    ));
+  }
+
+  static void alert(String text) {
+    asuka.showSnackBar(SnackBar(
+      duration: const Duration(milliseconds: 2300),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: const Color(0xfff260062),
+      content: Row(children: [
+        const Icon(
+          Icons.contact_support_rounded,
+          color: Colors.white,
+        ),
+        const SizedBox(
+          width: 12,
+        ),
+        Flexible(
+          child: Text(
+            text,
+            overflow: TextOverflow.clip,
+          ),
+        ),
+      ]),
+    ));
+  }
 }

@@ -25,18 +25,52 @@ mixin _$LoginController on _LoginController, Store {
     });
   }
 
-  late final _$loginAsyncAction =
-      AsyncAction('_LoginController.login', context: context);
+  late final _$isVisibleAtom =
+      Atom(name: '_LoginController.isVisible', context: context);
 
   @override
-  Future<dynamic> login(String email, String password) {
-    return _$loginAsyncAction.run(() => super.login(email, password));
+  bool get isVisible {
+    _$isVisibleAtom.reportRead();
+    return super.isVisible;
+  }
+
+  @override
+  set isVisible(bool value) {
+    _$isVisibleAtom.reportWrite(value, super.isVisible, () {
+      super.isVisible = value;
+    });
+  }
+
+  late final _$_LoginControllerActionController =
+      ActionController(name: '_LoginController', context: context);
+
+  @override
+  void setIsVisible(bool value) {
+    final _$actionInfo = _$_LoginControllerActionController.startAction(
+        name: '_LoginController.setIsVisible');
+    try {
+      return super.setIsVisible(value);
+    } finally {
+      _$_LoginControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setIsLoading(bool value) {
+    final _$actionInfo = _$_LoginControllerActionController.startAction(
+        name: '_LoginController.setIsLoading');
+    try {
+      return super.setIsLoading(value);
+    } finally {
+      _$_LoginControllerActionController.endAction(_$actionInfo);
+    }
   }
 
   @override
   String toString() {
     return '''
-isLoading: ${isLoading}
+isLoading: ${isLoading},
+isVisible: ${isVisible}
     ''';
   }
 }

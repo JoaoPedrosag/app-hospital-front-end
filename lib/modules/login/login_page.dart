@@ -1,11 +1,9 @@
-import 'package:asuka/snackbars/asuka_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:patient_front_end/modules/login/controller/login_controller.dart';
-import 'package:patient_front_end/repository/login/login_service_impl.dart';
 import 'package:patient_front_end/utils/widgets/button/solumed_button.dart';
-import 'package:provider/provider.dart';
-import 'package:validatorless/validatorless.dart';
+import 'package:patient_front_end/utils/widgets/text_form_field/custom_text_form_field.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({Key? key}) : super(key: key);
@@ -18,6 +16,7 @@ class _LoginViewState extends State<LoginView> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final controller = Modular.get<LoginController>();
 
   @override
   void dispose() {
@@ -28,7 +27,6 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Provider.of<LoginController>(context);
     return Scaffold(
       backgroundColor: const Color.fromRGBO(239, 242, 248, 1),
       body: Center(
@@ -43,42 +41,45 @@ class _LoginViewState extends State<LoginView> {
                   builder: (_) => Form(
                     key: _formKey,
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(
-                          height: 40,
-                        ),
                         Image.asset(
                           "assets/images/logo_.png",
                         ),
                         const SizedBox(
-                          height: 25,
+                          height: 80,
                         ),
-                        TextFormField(
+                        CustomTextFormField(
                           // validator: Validatorless.multiple([
                           //   Validatorless.required('Email não deve ser vazio'),
                           //   Validatorless.email('Email é invalido'),
                           // ]),
                           keyboardType: TextInputType.emailAddress,
                           controller: emailController,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            filled: true,
-                            prefixIcon: const Icon(Icons.email_outlined),
-                            labelText: 'Email',
-                            labelStyle: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
+
+                          labelText: "Email",
+                          prefixIcon: const Icon(
+                            Icons.email,
+                            size: 30,
+                            color: Colors.black87,
                           ),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
+                        CustomTextFormField(
+                          labelText: 'Senha',
+
+                          prefixIcon: const Icon(
+                            Icons.lock,
+                            size: 30,
+                            color: Colors.black87,
+                          ),
                           keyboardType: TextInputType.emailAddress,
+                          controller: passwordController,
+                          obscureText: true,
+                          // obscureText: controller.isVisible ? false : true,
+
                           // validator: Validatorless.multiple([
                           //   Validatorless.required('Senha não pode ser vazia'),
                           //   Validatorless.min(
@@ -86,23 +87,9 @@ class _LoginViewState extends State<LoginView> {
                           //   Validatorless.max(
                           //       20, 'Senha não pode ter mais de 30 caracteres'),
                           // ]),
-                          controller: passwordController,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            filled: true,
-                            prefixIcon: const Icon(Icons.email_outlined),
-                            labelText: 'Senha',
-                            labelStyle: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                            ),
-                          ),
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 40,
                         ),
                         controller.isLoading
                             ? const CircularProgressIndicator()
@@ -118,6 +105,27 @@ class _LoginViewState extends State<LoginView> {
                                 },
                                 label: const Text('Entrar'),
                               ),
+                        const SizedBox(
+                          height: 120,
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Modular.to.pushNamed('/user');
+                          },
+                          child: const Text(
+                            'Cadastrar-se',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              'Esqueceu a senha ?',
+                              style: TextStyle(color: Colors.black),
+                            )),
                       ],
                     ),
                   ),

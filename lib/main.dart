@@ -4,9 +4,11 @@ import 'package:patient_front_end/app_module.dart';
 import 'package:patient_front_end/app_widget.dart';
 
 void main() {
-  runApp(ModularApp(
-    debugMode: true,
-    module: AppModule(),
-    child: const AppWidget(),
-  ));
+  runApp(
+    ModularApp(
+      debugMode: true,
+      module: AppModule(),
+      child: const AppWidget(),
+    ),
+  );
 }

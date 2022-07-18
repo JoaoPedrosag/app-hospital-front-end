@@ -1,6 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 
 import 'login_service.dart';
 import 'package:flutter/services.dart';
@@ -18,8 +17,8 @@ class LoginServiceImpl extends ILoginService {
       final response = await http.post(url, body: {
         'email': email,
         'senha': senha,
-      }).timeout(Duration(seconds: 3), onTimeout: () {
-        print('timeout');
+      }).timeout(const Duration(seconds: 3), onTimeout: () {
+        SnackBarCustom.alert('Parece que você esta sem internet');
         throw Exception('timeout');
       });
 
