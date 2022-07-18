@@ -17,8 +17,8 @@ class AppConfigUI {
   });
   static final ThemeData theme = ThemeData(
     primarySwatch: _primarySwatch,
-    primaryColor: Color.fromARGB(255, 255, 255, 255),
-    primaryColorLight: Color.fromARGB(255, 172, 177, 182),
+    primaryColor: const Color.fromARGB(250, 26, 35, 126),
+    primaryColorLight: const Color.fromARGB(255, 172, 177, 182),
     inputDecorationTheme: const InputDecorationTheme(
       border: OutlineInputBorder(
         borderSide: BorderSide(color: Colors.grey),
