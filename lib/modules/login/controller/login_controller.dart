@@ -33,7 +33,7 @@ abstract class _LoginController with Store {
         if (loginFeito) {
           setIsLoading(false);
           SnackBarCustom.success('Login realizado com sucesso');
-          Modular.to.navigate('/page/home');
+          Modular.to.navigate('/home');
         } else {
           setIsLoading(false);
         }
