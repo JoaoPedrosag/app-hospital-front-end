@@ -27,7 +27,7 @@ class SolumedButton extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(250, 26, 35, 126),
+        color: Theme.of(context).primaryColor,
         borderRadius: borderRadius,
       ),
       child: ElevatedButton(

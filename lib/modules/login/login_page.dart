@@ -28,7 +28,7 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(239, 242, 248, 1),
+      backgroundColor: Colors.white,
       body: Center(
         child: LayoutBuilder(
           builder: (context, constraints) {
@@ -91,20 +91,23 @@ class _LoginViewState extends State<LoginView> {
                         const SizedBox(
                           height: 40,
                         ),
-                        controller.isLoading
-                            ? const CircularProgressIndicator()
-                            : SolumedButton(
-                                width: MediaQuery.of(context).size.height * 0.7,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.07,
-                                onPressed: () async {
-                                  if (_formKey.currentState!.validate()) {
-                                    controller.login(emailController.text,
-                                        passwordController.text);
-                                  }
-                                },
-                                label: const Text('Entrar'),
-                              ),
+                        SolumedButton(
+                          label: controller.isLoading
+                              ? SizedBox(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.white,
+                                  ),
+                                )
+                              : const Text('Entrar'),
+                          width: MediaQuery.of(context).size.height * 0.7,
+                          height: MediaQuery.of(context).size.height * 0.07,
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              controller.login(emailController.text,
+                                  passwordController.text);
+                            }
+                          },
+                        ),
                         const SizedBox(
                           height: 120,
                         ),
