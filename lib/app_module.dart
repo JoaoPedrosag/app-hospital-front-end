@@ -3,7 +3,8 @@ import 'package:patient_front_end/modules/home/home_module.dart';
 import 'package:patient_front_end/modules/home/home_page.dart';
 import 'package:patient_front_end/modules/login/controller/login_controller.dart';
 import 'package:patient_front_end/modules/login/login_page.dart';
-import 'package:patient_front_end/repository/new_user/new_user_page.dart';
+import 'package:patient_front_end/modules/new_user/new_user_page.dart';
+import 'package:patient_front_end/modules/splash/splash_page.dart';
 
 class AppModule extends Module {
   @override
@@ -17,7 +18,11 @@ class AppModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/',
-          child: (context, args) => const LoginView(),
+          child: (context, args) => const SplashPage(),
+        ),
+        ChildRoute(
+          '/login',
+          child: (context, args) => const LoginPage(),
         ),
         ChildRoute(
           '/home',

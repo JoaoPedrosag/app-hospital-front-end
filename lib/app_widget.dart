@@ -10,8 +10,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        builder: asuka.builder,
-        title: 'Solumed Solutions',
+        builder: asuka.builder,        
         theme: AppConfigUI.theme,
         routeInformationParser: Modular.routeInformationParser,
         routerDelegate: Modular.routerDelegate);

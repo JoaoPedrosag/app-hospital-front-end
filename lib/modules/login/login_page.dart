@@ -5,14 +5,14 @@ import 'package:patient_front_end/modules/login/controller/login_controller.dart
 import 'package:patient_front_end/utils/widgets/button/solumed_button.dart';
 import 'package:patient_front_end/utils/widgets/text_form_field/custom_text_form_field.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -93,7 +93,7 @@ class _LoginViewState extends State<LoginView> {
                         ),
                         SolumedButton(
                           label: controller.isLoading
-                              ? SizedBox(
+                              ? const SizedBox(
                                   child: CircularProgressIndicator(
                                     color: Colors.white,
                                   ),
