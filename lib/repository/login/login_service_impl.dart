@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:patient_front_end/utils/shared_secure/shared_secure_impl.dart';
 import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 
 import 'login_service.dart';
@@ -9,7 +10,7 @@ import 'package:patient_front_end/repository/login/login_service.dart';
 import 'package:patient_front_end/utils/constants.dart';
 
 class LoginServiceImpl extends ILoginService {
-  final storage = FlutterSecureStorage();
+  final shared = SharedSecureImpl();
   @override
   Future<bool> loginUsers(String email, String senha) async {
     try {
@@ -25,7 +26,7 @@ class LoginServiceImpl extends ILoginService {
       String responseBody = await jsonDecode(response.body)['mensagem'];
       if (responseBody == 'Sucesso') {
         String value = await jsonDecode(response.body)['token'];
-        await storage.write(key: 'token', value: value);
+        await shared.write('token', value);
 
         return true;
       } else {

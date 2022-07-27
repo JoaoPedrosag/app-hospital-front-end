@@ -26,7 +26,7 @@ class AppModule extends Module {
         ),
         ChildRoute(
           '/home',
-          child: (context, args) => const HomePage(),
+          child: (context, args) => HomePage(),
         ),
         ChildRoute(
           '/user',

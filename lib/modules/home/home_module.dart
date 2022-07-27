@@ -9,7 +9,7 @@ class HomeModule extends Module {
   List<ModularRoute> get routes => [
         ChildRoute(
           '/home',
-          child: (context, args) => const HomePage(),
+          child: (context, args) => HomePage(),
         ),
       ];
 }
