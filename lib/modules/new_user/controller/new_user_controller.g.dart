@@ -25,6 +25,20 @@ mixin _$NewUserController on _NewUserController, Store {
     });
   }
 
+  late final _$_NewUserControllerActionController =
+      ActionController(name: '_NewUserController', context: context);
+
+  @override
+  void setIsLoading(bool value) {
+    final _$actionInfo = _$_NewUserControllerActionController.startAction(
+        name: '_NewUserController.setIsLoading');
+    try {
+      return super.setIsLoading(value);
+    } finally {
+      _$_NewUserControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''
