@@ -29,30 +29,76 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Row(
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Column(
             children: [
-              GestureDetector(
-                child: Card(
-                  child: SizedBox(
-                    height: 150,
-                    width: 150,
-                    child: Column(
-                      children: const [
-                        Icon(
-                          Icons.perm_contact_cal,
-                          size: 80,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      print('ss');
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Card(
+                        shadowColor: Colors.black,
+                        elevation: 10,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: const [
+                            Icon(
+                              Icons.perm_contact_cal,
+                              size: 60,
+                              color: Colors.red,
+                            ),
+                            Text(
+                              'Add pacientes',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            )
+                          ],
                         ),
-                        Text('Cadastrar pacientes')
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
+                  GestureDetector(
+                    onTap: () {
+                      print('s2');
+                    },
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      child: Card(
+                        shadowColor: Colors.black,
+                        elevation: 10,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: const [
+                            Icon(
+                              Icons.perm_contact_cal,
+                              size: 60,
+                              color: Colors.green,
+                            ),
+                            Text(
+                              'Pacientes',
+                              style: TextStyle(
+                                fontSize: 14,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
-        ],
+        ),
       ),
     );
   }

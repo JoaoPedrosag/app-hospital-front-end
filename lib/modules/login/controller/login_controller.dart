@@ -29,13 +29,13 @@ abstract class _LoginController with Store {
     try {
       setIsLoading(true);
       await Future.delayed(const Duration(seconds: 2), () async {
-        bool loginFeito = await _loginService.loginUsers(email, password);
-        if (loginFeito) {
+        String loginFeito = await _loginService.loginUsers(email, password);
+        if (loginFeito == 'Login realizado com sucesso') {
           setIsLoading(false);
-          SnackBarCustom.success('Login realizado com sucesso');
+          SnackBarCustom.success(loginFeito);
           Modular.to.navigate('/home');
         } else {
-          SnackBarCustom.error('Login ou senha inválidos');
+          SnackBarCustom.error(loginFeito);
           setIsLoading(false);
         }
       });

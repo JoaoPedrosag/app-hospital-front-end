@@ -1,3 +1,3 @@
 abstract class ILoginService {
-  Future<bool> loginUsers(String email, String senha);
+  Future<String> loginUsers(String email, String senha);
 }

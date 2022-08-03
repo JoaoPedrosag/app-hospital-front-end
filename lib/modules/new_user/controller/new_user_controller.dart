@@ -20,16 +20,16 @@ abstract class _NewUserController with Store {
   Future newUser(String email, String senha) async {
     try {
       setIsLoading(true);
-      await Future.delayed(Duration(seconds: 2));
-      bool userCreated = await _newUser.newUser(email, senha);
+      await Future.delayed(const Duration(seconds: 2));
+      String userCreated = await _newUser.newUser(email, senha);
 
-      if (userCreated) {
+      if (userCreated == 'Usuário cadastrado com sucesso') {
         setIsLoading(false);
-        SnackBarCustom.success('Usuário criado com sucesso');
+        SnackBarCustom.success(userCreated);
         Modular.to.navigate('/login');
       } else {
         setIsLoading(false);
-        SnackBarCustom.error('Usuário já existe');
+        SnackBarCustom.error(userCreated);
       }
     } on Exception catch (e) {
       setIsLoading(false);

@@ -4,7 +4,7 @@ import 'package:patient_front_end/utils/constants.dart';
 
 class NewUserImpl extends INewUserService {
   @override
-  Future<bool> newUser(String email, String senha) async {
+  Future<String> newUser(String email, String senha) async {
     try {
       final url = Uri.parse(ApiConst.BASE_URL + ApiConst.URL_CREATE_USERS);
       final response = await http.post(url, body: {
@@ -12,11 +12,11 @@ class NewUserImpl extends INewUserService {
         'senha': senha,
       });
       if (response.statusCode == 201) {
-        return true;
+        return 'Usuário cadastrado com sucesso';
       } else if (response.statusCode == 409) {
-        return false;
+        return 'Usuário já existe';
       } else {
-        return false;
+        return 'Erro ao cadastrar usuário, por favor tente novamente';
       }
     } catch (e) {
       throw (e.toString());

@@ -1,4 +1,3 @@
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:patient_front_end/utils/shared_secure/shared_secure_impl.dart';
 import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 
@@ -12,7 +11,7 @@ import 'package:patient_front_end/utils/constants.dart';
 class LoginServiceImpl extends ILoginService {
   final shared = SharedSecureImpl();
   @override
-  Future<bool> loginUsers(String email, String senha) async {
+  Future<String> loginUsers(String email, String senha) async {
     try {
       final url = Uri.parse(ApiConst.BASE_URL + ApiConst.URL_LOGIN);
       final response = await http.post(url, body: {
@@ -28,9 +27,9 @@ class LoginServiceImpl extends ILoginService {
         String value = await jsonDecode(response.body)['token'];
         await shared.write('token', value);
 
-        return true;
+        return 'Login realizado com sucesso';
       } else {
-        return false;
+        return 'Senha ou usuario inválidos';
       }
     } on PlatformException catch (e) {
       throw UnimplementedError(e.message);
