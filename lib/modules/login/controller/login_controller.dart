@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:patient_front_end/repository/login/login_service_impl.dart';
@@ -30,6 +32,7 @@ abstract class _LoginController with Store {
       setIsLoading(true);
       await Future.delayed(const Duration(seconds: 2), () async {
         String loginFeito = await _loginService.loginUsers(email, password);
+
         if (loginFeito == 'Login realizado com sucesso') {
           setIsLoading(false);
           SnackBarCustom.success(loginFeito);
@@ -41,8 +44,7 @@ abstract class _LoginController with Store {
       });
     } catch (e) {
       setIsLoading(false);
-
-      SnackBarCustom.error('Login ou senha inválidos');
+      log(e.toString());
     }
   }
 }
