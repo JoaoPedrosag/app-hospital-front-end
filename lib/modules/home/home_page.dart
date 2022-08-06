@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:patient_front_end/utils/shared_secure/shared_secure_impl.dart';
 
+import 'widgets/widgets_card.dart';
+
 class HomePage extends StatelessWidget {
   final shared = SharedSecureImpl();
   HomePage({Key? key}) : super(key: key);
@@ -10,15 +12,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 200,
-        title: const Text('Bem vindo(a), usuário de acesso'),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(40),
+        toolbarHeight: 150,
+        title: const Text(
+          'Olá, Dr.João',
+          style: TextStyle(
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
           ),
         ),
+        backgroundColor: Theme.of(context).primaryColor,
         actions: [
           IconButton(
             icon: const Icon(Icons.exit_to_app_rounded),
@@ -29,74 +31,75 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      print('ss');
-                    },
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: Card(
-                        shadowColor: Colors.black,
-                        elevation: 10,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
-                            Icon(
-                              Icons.perm_contact_cal,
-                              size: 60,
-                              color: Colors.red,
-                            ),
-                            Text(
-                              'Add pacientes',
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            )
-                          ],
-                        ),
+      body: Container(
+        color: Theme.of(context).primaryColor,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 360,
+                    height: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      print('s2');
-                    },
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.3,
-                      child: Card(
-                        shadowColor: Colors.black,
-                        elevation: 10,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: const [
-                            Icon(
-                              Icons.perm_contact_cal,
-                              size: 60,
-                              color: Colors.green,
-                            ),
-                            Text(
-                              'Pacientes',
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            )
-                          ],
-                        ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 360,
+                    height: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        color: Colors.white,
                       ),
                     ),
                   ),
-                ],
-              )
-            ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: 360,
+                    height: 100,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MenuButton(
+                      'Pacientes',
+                      Icons.person,
+                    ),
+                    MenuButton(
+                      'Pacientes',
+                      Icons.person,
+                    ),
+                    MenuButton(
+                      'Pacientes',
+                      Icons.person,
+                    ),
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),
