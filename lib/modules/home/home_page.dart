@@ -45,9 +45,8 @@ class HomePage extends StatelessWidget {
                     width: 360,
                     height: 100,
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Colors.white,
                       ),
                     ),
@@ -59,9 +58,8 @@ class HomePage extends StatelessWidget {
                     width: 360,
                     height: 100,
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Colors.white,
                       ),
                     ),
@@ -73,9 +71,8 @@ class HomePage extends StatelessWidget {
                     width: 360,
                     height: 100,
                     child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(20)),
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Colors.white,
                       ),
                     ),
@@ -85,8 +82,11 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     MenuButton(
-                      'Pacientes',
+                      'Adicionar Pacientes',
                       Icons.person,
+                      onTap: () {
+                        Modular.to.pushNamed('/newPatient');
+                      },
                     ),
                     MenuButton(
                       'Pacientes',

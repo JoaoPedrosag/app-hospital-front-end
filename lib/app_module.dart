@@ -4,6 +4,8 @@ import 'package:patient_front_end/modules/login/controller/login_controller.dart
 import 'package:patient_front_end/modules/login/login_page.dart';
 import 'package:patient_front_end/modules/new_user/controller/new_user_controller.dart';
 import 'package:patient_front_end/modules/new_user/new_user_page.dart';
+import 'package:patient_front_end/modules/patients/newPatients/newPatients_page.dart';
+import 'package:patient_front_end/modules/patients/newPatients_module.dart';
 import 'package:patient_front_end/modules/splash/splash_page.dart';
 
 class AppModule extends Module {
@@ -35,5 +37,6 @@ class AppModule extends Module {
           '/user',
           child: (context, args) => const NewUser(),
         ),
+        ModuleRoute('/newPatient', module: NewPatientsModule()),
       ];
 }
