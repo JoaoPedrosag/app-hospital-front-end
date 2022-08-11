@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:patient_front_end/modules/patients/newPatients/controller/new_patients_controller.dart';
 import 'package:patient_front_end/utils/widgets/button/solumed_button.dart';
 import 'package:patient_front_end/utils/widgets/text_form_field/custom_text_form_field.dart';
 import 'package:validatorless/validatorless.dart';
-
-import '../../../utils/funcs/functions.dart';
 
 class NewPatient extends StatefulWidget {
   const NewPatient({Key? key}) : super(key: key);
@@ -17,14 +18,16 @@ class _NewPatientState extends State<NewPatient> {
   final name = TextEditingController();
   final nameMother = TextEditingController();
   final cpf = TextEditingController();
+  final endereco = TextEditingController();
   DateTime dataDascimento = DateTime.now();
+  final controller = Modular.get<NewPatientsController>();
 
   @override
   void dispose() {
     name.dispose();
     nameMother.dispose();
     cpf.dispose();
-
+    endereco.dispose();
     super.dispose();
   }
 
@@ -112,7 +115,6 @@ class _NewPatientState extends State<NewPatient> {
                           if (date == null) return;
                           setState(() {
                             dataDascimento = date;
-                            print(dataDascimento);
                           });
                         },
                       ),
@@ -129,13 +131,38 @@ class _NewPatientState extends State<NewPatient> {
                 const SizedBox(
                   height: 20,
                 ),
-                SolumedButton(
+                CustomTextFormField(
+                    validator: Validatorless.required('Endereço requerido'),
+                    keyboardType: TextInputType.name,
+                    controller: endereco,
+                    prefixIcon: const Icon(
+                      Icons.addchart_rounded,
+                      size: 30,
+                      color: Colors.black87,
+                    ),
+                    labelText: 'Endereço'),
+                const SizedBox(
+                  height: 20,
+                ),
+                Observer(
+                  builder: (_) => SolumedButton(
                     width: MediaQuery.of(context).size.height * 0.7,
                     height: MediaQuery.of(context).size.height * 0.07,
-                    label: const Text('Cadastrar'),
+                    label: controller.isLoading
+                        ? const SizedBox(
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          )
+                        : const Text('Cadastrar paciente'),
                     onPressed: () {
-                      if (_formKey.currentState!.validate()) {}
-                    })
+                      if (_formKey.currentState!.validate()) {
+                        controller.insertPatients(name.text, nameMother.text,
+                            dataDascimento, endereco.text, int.parse(cpf.text));
+                      }
+                    },
+                  ),
+                )
               ],
             ),
           ),
@@ -148,6 +175,6 @@ class _NewPatientState extends State<NewPatient> {
         context: context,
         initialDate: dataDascimento,
         firstDate: DateTime(1900),
-        lastDate: DateTime(2023),
+        lastDate: DateTime.now(),
       );
 }

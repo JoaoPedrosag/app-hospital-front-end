@@ -11,7 +11,6 @@ void main() {
   ]);
   runApp(
     ModularApp(
-      debugMode: true,
       module: AppModule(),
       child: const AppWidget(),
     ),

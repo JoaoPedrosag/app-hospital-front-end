@@ -6,6 +6,7 @@ import 'package:patient_front_end/modules/new_user/controller/new_user_controlle
 import 'package:patient_front_end/modules/new_user/new_user_page.dart';
 import 'package:patient_front_end/modules/patients/new_patients_module.dart';
 import 'package:patient_front_end/modules/splash/splash_page.dart';
+import 'package:patient_front_end/utils/shared_secure/shared_secure_impl.dart';
 
 class AppModule extends Module {
   @override
@@ -15,6 +16,9 @@ class AppModule extends Module {
         ),
         Bind.lazySingleton(
           (i) => NewUserController(),
+        ),
+        Bind.lazySingleton(
+          (i) => SharedSecureImpl(),
         )
       ];
 

@@ -1,6 +1,11 @@
 class AppFunctions {
-  static String getDate(DateTime date) {
-    print(date);
-    return "${date.day}/${date.month}/${date.year}";
+  static int getDate(DateTime date) {
+    final int data = date.year;
+    int age = DateTime.now().year - data;
+
+    if (date.day > DateTime.now().day && date.month == DateTime.now().month) {
+      age--;
+    }
+    return age;
   }
 }
