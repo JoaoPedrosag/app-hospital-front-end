@@ -17,11 +17,11 @@ class _SplashPageState extends State<SplashPage> {
     shared.read('token').then((value) {
       if (value != null) {
         Future.delayed(const Duration(seconds: 2), () {
-          Modular.to.navigate('/home');
+          Modular.to.navigate('/home/');
         });
       } else {
         Future.delayed(const Duration(seconds: 5), () {
-          Modular.to.navigate('/login');
+          Modular.to.navigate('/login/');
         });
       }
     });

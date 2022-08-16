@@ -6,14 +6,14 @@ import 'package:patient_front_end/utils/widgets/button/solumed_button.dart';
 import 'package:patient_front_end/utils/widgets/text_form_field/custom_text_form_field.dart';
 import 'package:validatorless/validatorless.dart';
 
-class NewUser extends StatefulWidget {
-  const NewUser({Key? key}) : super(key: key);
+class NewUserPage extends StatefulWidget {
+  const NewUserPage({Key? key}) : super(key: key);
 
   @override
-  State<NewUser> createState() => _NewUserState();
+  State<NewUserPage> createState() => _NewUserPageState();
 }
 
-class _NewUserState extends State<NewUser> {
+class _NewUserPageState extends State<NewUserPage> {
   final _formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
