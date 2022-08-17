@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:patient_front_end/modules/patients/electronic_patients/electronic_patients_page.dart';
 import 'package:patient_front_end/modules/patients/newPatients/controller/new_patients_controller.dart';
 import 'package:patient_front_end/modules/patients/newPatients/new_patients_page.dart';
 import 'package:patient_front_end/repository/patients/patients_impl.dart';
@@ -19,6 +20,10 @@ class NewPatientsModule extends Module {
         ChildRoute(
           '/',
           child: (context, args) => const NewPatient(),
+        ),
+        ChildRoute(
+          '/electronic',
+          child: (context, args) => ElectronicPatientsPage(),
         ),
       ];
 }

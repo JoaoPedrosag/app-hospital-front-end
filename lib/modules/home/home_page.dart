@@ -170,6 +170,9 @@ class HomePage extends StatelessWidget {
                     MenuButton(
                       'Meus Pacientes',
                       Icons.people,
+                      onTap: () {
+                        Modular.to.pushNamed('/newPatient/electronic');
+                      },
                     ),
                     MenuButton(
                       'Meus Agendamentos',

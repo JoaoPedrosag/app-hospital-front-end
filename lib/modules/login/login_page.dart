@@ -124,7 +124,9 @@ class _LoginPageState extends State<LoginPage> {
                           height: 20,
                         ),
                         TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Modular.to.navigate('/home');
+                            },
                             child: const Text(
                               'Esqueceu a senha ?',
                               style: TextStyle(color: Colors.black),
