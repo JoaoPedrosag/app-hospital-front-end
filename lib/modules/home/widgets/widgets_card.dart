@@ -3,9 +3,13 @@ import 'package:flutter/material.dart';
 class MenuButton extends StatelessWidget {
   final String title;
   final IconData icon;
-  final Function()? onTap;
-
-  MenuButton(this.title, this.icon, {this.onTap});
+  final Function() onTap;
+  const MenuButton({
+    Key? key,
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:patient_front_end/repository/patients/patients_service.dart';
 import 'package:patient_front_end/utils/constants.dart';
@@ -14,7 +12,7 @@ class PatientsImpl extends IPatientsService {
       String dataDascimento, String endereco, int idade) async {
     final String? token = await controller.read('token');
     try {
-      final url = Uri.parse(ApiConst.BASE_URL + ApiConst.URL_CREATE_PATIENT);
+      final url = Uri.parse(ApiConst.baseUrl + ApiConst.urlCreatePatient);
       final response = await http.post(url, body: {
         "nome": name,
         "nome_da_mae": nameMother,
@@ -27,7 +25,6 @@ class PatientsImpl extends IPatientsService {
         SnackBarCustom.alert('Parece que você esta sem internet');
         throw Exception('timeout');
       });
-      final String body = await jsonDecode(response.body)['mensagem'];
 
       if (response.statusCode == 201) {
         return 'Paciente cadastrado com sucesso';
