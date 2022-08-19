@@ -13,7 +13,7 @@ class LoginServiceImpl extends ILoginService {
   @override
   Future<String> loginUsers(String email, String senha) async {
     try {
-      final url = Uri.parse(ApiConst.BASE_URL + ApiConst.URL_LOGIN);
+      final url = Uri.parse(ApiConst.baseUrl + ApiConst.urlLogin);
       final response = await http.post(url, body: {
         'email': email,
         'senha': senha,

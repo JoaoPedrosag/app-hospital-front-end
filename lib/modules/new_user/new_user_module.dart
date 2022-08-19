@@ -1,5 +1,4 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:patient_front_end/modules/login/login_page.dart';
 import 'package:patient_front_end/modules/new_user/new_user_page.dart';
 
 class NewUserModule extends Module {

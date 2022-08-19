@@ -47,6 +47,9 @@ dependencies:
   asuka: ^2.0.0+1  
   flutter_modular: ^5.0.3  
   flutter_secure_storage: ^5.0.2
+  speech_to_text: ^5.6.1
+  avatar_glow: ^2.0.2
+  highlight_text: ^1.4.1
 
 dev_dependencies:
   flutter_test:

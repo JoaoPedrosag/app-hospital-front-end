@@ -52,7 +52,7 @@ class SnackBarCustom {
     asuka.showSnackBar(SnackBar(
       duration: const Duration(milliseconds: 2300),
       behavior: SnackBarBehavior.floating,
-      backgroundColor: const Color(0xfff260062),
+      backgroundColor: const Color.fromRGBO(38, 0, 98, 1),
       content: Row(children: [
         const Icon(
           Icons.contact_support_rounded,

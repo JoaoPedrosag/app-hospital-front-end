@@ -6,7 +6,7 @@ class NewUserImpl extends INewUserService {
   @override
   Future<String> newUser(String email, String senha) async {
     try {
-      final url = Uri.parse(ApiConst.BASE_URL + ApiConst.URL_CREATE_USERS);
+      final url = Uri.parse(ApiConst.baseUrl + ApiConst.urlCreateUsers);
       final response = await http.post(url, body: {
         'email': email,
         'senha': senha,

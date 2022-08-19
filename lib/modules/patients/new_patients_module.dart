@@ -20,5 +20,9 @@ class NewPatientsModule extends Module {
           '/',
           child: (context, args) => const NewPatient(),
         ),
+        // ChildRoute(
+        //   '/electronic',
+        //   child: (context, args) => ElectronicPatientsPage(),
+        // ),
       ];
 }
