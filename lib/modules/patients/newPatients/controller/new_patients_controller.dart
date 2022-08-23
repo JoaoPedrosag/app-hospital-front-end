@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:intl/intl.dart';
 import 'package:mobx/mobx.dart';
-import 'package:patient_front_end/repository/patients/patients_impl.dart';
+import 'package:patient_front_end/modules/patients/service/patients_impl.dart';
 import 'package:patient_front_end/utils/funcs/functions.dart';
 import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 part 'new_patients_controller.g.dart';

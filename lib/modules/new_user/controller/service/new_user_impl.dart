@@ -1,4 +1,3 @@
-import 'package:patient_front_end/repository/new_user/new_user_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:patient_front_end/utils/constants.dart';
 

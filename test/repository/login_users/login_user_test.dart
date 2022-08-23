@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:patient_front_end/repository/login/login_service_impl.dart';
+import 'package:patient_front_end/modules/login/service/login_service_impl.dart';
 
 void main() {
   test('Deve logar', () async {
