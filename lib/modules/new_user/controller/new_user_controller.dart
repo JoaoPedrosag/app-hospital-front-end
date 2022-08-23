@@ -2,7 +2,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
 import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 
-import '../../../repository/new_user/new_user_impl.dart';
 part 'new_user_controller.g.dart';
 
 class NewUserController = _NewUserController with _$NewUserController;

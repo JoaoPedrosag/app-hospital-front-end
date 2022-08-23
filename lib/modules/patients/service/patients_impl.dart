@@ -1,5 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:patient_front_end/repository/patients/patients_service.dart';
+import 'package:patient_front_end/modules/patients/service/patients_service.dart';
 import 'package:patient_front_end/utils/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:patient_front_end/utils/shared_secure/shared_secure_impl.dart';

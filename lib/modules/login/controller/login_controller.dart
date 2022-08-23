@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
-import 'package:patient_front_end/repository/login/login_service_impl.dart';
+import 'package:patient_front_end/modules/login/service/login_service_impl.dart';
 import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 part 'login_controller.g.dart';
 
