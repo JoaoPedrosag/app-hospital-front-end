@@ -1,5 +1,6 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+import 'package:patient_front_end/modules/new_user/controller/service/new_user_impl.dart';
 import 'package:patient_front_end/utils/widgets/snackbar/snack_bar.dart';
 
 part 'new_user_controller.g.dart';

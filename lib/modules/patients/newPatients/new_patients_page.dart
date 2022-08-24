@@ -49,103 +49,103 @@ class _NewPatientState extends State<NewPatient> {
           key: _formKey,
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                CustomTextFormField(
-                  labelText: 'Nome do paciente',
-                  prefixIcon: const Icon(
-                    Icons.email,
-                    size: 30,
-                    color: Colors.black87,
-                  ),
-                  validator:
-                      Validatorless.required('Nome do paciente é obrigatório'),
-                  keyboardType: TextInputType.name,
-                  controller: name,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomTextFormField(
-                    validator:
-                        Validatorless.required('Nome da mãe é obrigatório'),
-                    keyboardType: TextInputType.name,
-                    controller: nameMother,
+            child: Observer(
+              builder: (_) => Column(
+                children: [
+                  CustomTextFormField(
+                    labelText: 'Nome do paciente',
                     prefixIcon: const Icon(
-                      Icons.lock,
+                      Icons.email,
                       size: 30,
                       color: Colors.black87,
                     ),
-                    labelText: 'Nome da mãe'),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomTextFormField(
-                    validator: Validatorless.multiple([
-                      Validatorless.cpf('CPF inválido'),
-                    ]),
+                    validator: Validatorless.required(
+                        'Nome do paciente é obrigatório'),
                     keyboardType: TextInputType.name,
-                    controller: cpf,
-                    prefixIcon: const Icon(
-                      Icons.contact_page_rounded,
-                      size: 30,
-                      color: Colors.black87,
-                    ),
-                    labelText: 'CPF'),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                  height: 60,
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 225, 227, 235),
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    controller: name,
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                        icon: const Icon(
-                          Icons.calendar_today,
-                          size: 30,
-                          color: Colors.black87,
-                        ),
-                        onPressed: () async {
-                          final date = await pickDate();
-                          if (date == null) return;
-                          setState(() {
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextFormField(
+                      validator:
+                          Validatorless.required('Nome da mãe é obrigatório'),
+                      keyboardType: TextInputType.name,
+                      controller: nameMother,
+                      prefixIcon: const Icon(
+                        Icons.lock,
+                        size: 30,
+                        color: Colors.black87,
+                      ),
+                      labelText: 'Nome da mãe'),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextFormField(
+                      validator: Validatorless.multiple([
+                        Validatorless.cpf('CPF inválido'),
+                      ]),
+                      keyboardType: TextInputType.name,
+                      controller: cpf,
+                      prefixIcon: const Icon(
+                        Icons.contact_page_rounded,
+                        size: 30,
+                        color: Colors.black87,
+                      ),
+                      labelText: 'CPF'),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 60,
+                    decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 225, 227, 235),
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        IconButton(
+                          icon: const Icon(
+                            Icons.calendar_today,
+                            size: 30,
+                            color: Colors.black87,
+                          ),
+                          onPressed: () async {
+                            final date = await pickDate();
+                            if (date == null) return;
                             dataDascimento = date;
-                          });
-                        },
-                      ),
-                      Text(
-                        '${dataDascimento.day}/${dataDascimento.month}/${dataDascimento.year}',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          color: Colors.black87,
+                            controller.setAge(dataDascimento);
+                            print(dataDascimento);
+                          },
                         ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                CustomTextFormField(
-                    validator: Validatorless.required('Endereço requerido'),
-                    keyboardType: TextInputType.name,
-                    controller: endereco,
-                    prefixIcon: const Icon(
-                      Icons.addchart_rounded,
-                      size: 30,
-                      color: Colors.black87,
+                        Text(
+                          '${dataDascimento.day}/${dataDascimento.month}/${dataDascimento.year}',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            color: Colors.black87,
+                          ),
+                        ),
+                      ],
                     ),
-                    labelText: 'Endereço'),
-                const SizedBox(
-                  height: 20,
-                ),
-                Observer(
-                  builder: (_) => SolumedButton(
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  CustomTextFormField(
+                      validator: Validatorless.required('Endereço requerido'),
+                      keyboardType: TextInputType.name,
+                      controller: endereco,
+                      prefixIcon: const Icon(
+                        Icons.addchart_rounded,
+                        size: 30,
+                        color: Colors.black87,
+                      ),
+                      labelText: 'Endereço'),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  SolumedButton(
                     width: MediaQuery.of(context).size.height * 0.7,
                     height: MediaQuery.of(context).size.height * 0.07,
                     label: controller.isLoading
@@ -161,9 +161,9 @@ class _NewPatientState extends State<NewPatient> {
                             dataDascimento, endereco.text, int.parse(cpf.text));
                       }
                     },
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
           ),
         ),
