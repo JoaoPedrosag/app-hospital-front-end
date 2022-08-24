@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:patient_front_end/modules/new_user/controller/service/new_user_service.dart';
 import 'package:patient_front_end/utils/constants.dart';
 
 class NewUserImpl extends INewUserService {

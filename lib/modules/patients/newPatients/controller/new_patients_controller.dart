@@ -18,6 +18,9 @@ abstract class _NewPatientsController with Store {
   final DateFormat formatter = DateFormat('dd/MM/yyyy');
 
   @observable
+  DateTime age2 = DateTime.now();
+
+  @observable
   bool isLoading = false;
 
   Future<String> insertPatients(String name, String nameMother, DateTime date,
@@ -25,6 +28,8 @@ abstract class _NewPatientsController with Store {
     try {
       setIsLoading(true);
       age = AppFunctions.getDate(date);
+
+      print(age);
       final String created = await repositoryPatients.newPatient(
           name, nameMother, formatter.format(date), endereco, age);
       if (created == 'Paciente cadastrado com sucesso') {
@@ -41,5 +46,10 @@ abstract class _NewPatientsController with Store {
   @action
   void setIsLoading(bool value) {
     isLoading = value;
+  }
+
+  @computed
+  void setAge(DateTime value) {
+    age2 = value;
   }
 }
