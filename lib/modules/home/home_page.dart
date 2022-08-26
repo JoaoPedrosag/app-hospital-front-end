@@ -288,6 +288,7 @@ class HomePage extends StatelessWidget {
                         title: 'Meus Pacientes',
                         icon: Icons.people,
                         onTap: () {
+                          Modular.to.pushNamed('/newPatient/mypatients');
                           // Modular.to.pushNamed('/newPatient/electronic');
                         },
                       ),
