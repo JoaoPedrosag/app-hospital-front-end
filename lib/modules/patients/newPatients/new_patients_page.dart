@@ -35,14 +35,16 @@ class _NewPatientState extends State<NewPatient> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          toolbarHeight: 100,
-          title: const Text('Criar paciente'),
-          centerTitle: true,
-          backgroundColor: Theme.of(context).primaryColor,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
+        toolbarHeight: 100,
+        title: const Text('Criar paciente'),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(20),
-          ))),
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
         child: Form(
